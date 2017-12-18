@@ -1,0 +1,18 @@
+{
+
+  "objTypeExp": ".result-xl",
+  "objUIDExp": "a[target]",
+  "objUIDExp2": "href",
+  "propertyTypeExp": "div.result-xl-title-bar > div.title-bar-left",
+  "publishStickerExp": "div.stickers > div.sticker-nouveau",
+  
+  "priceExp": "div.xl-donnees-bien > div.xl-price",
+  "surfaceAndRoomsExp": "div.xl-donnees-bien > div.xl-surface-ch",
+  "shortDescExp": "div.xl-desc",
+
+  "address": {
+    "zipCodeExp": "1200",
+    "addressLineExp": "#propertyPage-title-address-output"
+  }
+   
+}

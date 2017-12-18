@@ -1,0 +1,17 @@
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+
+.todos li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.todos li.selected:hover {
+  background-color: #BBD8DC !important;
+  color: white;
+}
+
+table { table-layout: fixed; }
+table td { word-wrap: break-word; }

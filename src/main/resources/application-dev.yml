@@ -1,0 +1,55 @@
+server:
+  use-forward-headers: true
+  port: 8080
+
+security:
+  basic:
+    enabled: false
+
+spring:
+    application:
+        name: micro20-local
+        
+    devtools:
+        restart:
+            enabled: true
+        livereload:
+            enabled: true
+    jackson:
+        serialization.write_dates_as_timestamps: false
+    
+    data: 
+      mongodb:
+       database: ${MONGO_USE_DB}
+       uri: ${MONGO_USE_URI}
+       repositories:
+        enabled: true 
+
+    mail:
+      host:  smtp.gmail.com
+      port:  587
+      username: ${TECH_MAIL_TO}
+      password: xxxx
+      protocol: smtp
+
+github:
+  client:
+    clientId: ${GITHUB_CLIENT_IT}
+    clientSecret: fedd674f77a229d0036eb4bc26ef0683d22f646e
+    accessTokenUri: https://github.com/login/oauth/access_token
+    userAuthorizationUri: https://github.com/login/oauth/authorize
+    client-authentication-scheme: query
+  resource:
+    userInfoUri: https://api.github.com/user
+
+app:
+  micro20:
+    cron:
+      every20min: 0 0/#{new Double((T(java.lang.Math).random() * 100 % 2 + 1 ) ).intValue()} * * * *      
+    proxyEnabled: true
+    proxyHost: ${PROXY_HOST}
+    proxyPort: ${PROXY_PORT}
+    proxyUsername: ${USERNAME}
+    proxyPassword: ${SECPAS}
+    techMailTo: ${TECH_MAIL_TO}
+    

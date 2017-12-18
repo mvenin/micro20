@@ -1,0 +1,46 @@
+server:
+    contextPath: /
+
+security:
+    basic:
+        enabled: false
+
+spring:
+    application:
+        name: micro20
+        
+    devtools:
+        restart:
+            enabled: false
+        livereload:
+            enabled: false
+    jackson:
+        serialization.write_dates_as_timestamps: false
+                    
+    data: 
+      mongodb:
+        database: micro20
+        uri: ${env.OPENSHIFT_MONGODB_DB_URL}
+        repositories:
+              enabled: true 
+            
+github:
+  client:
+    clientId: ${GITHUB_CLIENT_IT}
+    clientSecret: 5540a596cea865cffe9b95a58864c77fe2db8aba
+    accessTokenUri: https://github.com/login/oauth/access_token
+    userAuthorizationUri: https://github.com/login/oauth/authorize
+    clientAuthenticationScheme: form
+    use-current-uri: true
+  resource:
+    userInfoUri: https://api.github.com/user
+    
+app.micro20:      
+  cron.every20min: 0 0/#{new Double((T(java.lang.Math).random() * 100 % 20 + 30 ) ).intValue()} * * * *      
+  proxyEnabled: false
+  proxyHost: ${PROXY_HOST}
+  proxyPort: ${PROXY_PORT}
+  proxyUsername: ${USERNAME}
+  proxyPassword: ${SECPAS}
+  techMailTo: ${TECH_MAIL_TO}
+  

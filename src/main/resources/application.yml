@@ -1,0 +1,7 @@
+spring:
+    application:
+        name: micro20
+    profiles:
+        active: #spring.profiles.active#
+        
+    

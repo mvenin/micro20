@@ -1,0 +1,13 @@
+<div>
+
+<div>
+	<label>Uri:</label> 
+	<input #pageUri class="form-control form-control-lg" />
+	<button (click)="getPageHtml(pageUri.value);" class="btn btn-primary" type="submit">Get content</button>
+</div>
+
+
+<div>
+{{pageContent}}
+</div>
+

@@ -1,0 +1,54 @@
+server:
+  use-forward-headers: true
+  port: 8080
+
+security:
+  basic:
+    enabled: false
+
+spring:
+    application:
+        name: micro20-heroku
+        
+    devtools:
+        restart:
+            enabled: true
+        livereload:
+            enabled: true
+    jackson:
+        serialization.write_dates_as_timestamps: false
+    
+    data: 
+      mongodb:
+        database: heroku_srtb1swc
+        uri: ${env.MONGODB_URI}    
+        
+    mail:
+      host: ${env.MAILGUN_SMTP_SERVER}
+      port: ${env.MAILGUN_SMTP_PORT}
+      username: ${env.MAILGUN_SMTP_LOGIN}
+      password: ${env.MAILGUN_SMTP_PASSWORD}
+      domain: ${env.MAILGUN_DOMAIN} 
+      protocol: smtp
+
+
+github:
+  client:
+    clientId: ${GITHUB_CLIENT_IT}
+    clientSecret: c5f41da3da4e648fd8a915639b6f4a731cf7d656
+    accessTokenUri: https://github.com/login/oauth/access_token
+    userAuthorizationUri: https://github.com/login/oauth/authorize
+    client-authentication-scheme: query
+  resource:
+    userInfoUri: https://api.github.com/user
+
+app.micro20:      
+  cron.every20min: 0 0/#{new Double((T(java.lang.Math).random() * 100 % 20 + 30 ) ).intValue()} * * * *      
+  proxyEnabled: false
+  proxyHost: ${PROXY_HOST}
+  proxyPort: ${PROXY_PORT}
+  proxyUsername: ${USERNAME}
+  proxyPassword: ${SECPAS}
+  techMailTo: ${TECH_MAIL_TO}
+  
+    

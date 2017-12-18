@@ -1,0 +1,28 @@
+<div>
+
+<div>
+	<label>Todo:</label> <input #todoDescr />
+	<button (click)="addTodo(todoDescr.value); todoDescr.value=''" class="btn btn-primary" type="submit">Add</button>
+
+</div>
+
+<table class="table table-responsive table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Todo</th>
+      <th>DueDate</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let todo of todos; let i = index;" (click)="onSelect(todo)" [class.selected]="todo === selectedTodo">
+      <th scope="row">{{i+1}}</th>
+      <td>{{todo.name}}</td>
+      <td>{{todo.dueDate}}</td>
+      <td> <button class="btn btn-delete float-right"  (click)="deleteTodo(todo); $event.stopPropagation()">x</button> </td>
+    </tr>
+  </tbody>
+</table>
+
+</div>

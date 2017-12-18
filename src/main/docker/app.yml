@@ -1,0 +1,9 @@
+version: '2'
+services:
+    micro20-app:
+        image: micro20
+        environment:
+            - SPRING_PROFILES_ACTIVE=dev,swagger
+            - JHIPSTER_SLEEP=2 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
